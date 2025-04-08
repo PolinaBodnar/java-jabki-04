@@ -30,6 +30,19 @@ public class MainTest {
     }
 
     @Test
+    public void testFactorialZero() {
+        assertEquals(1, Main.factorial(0));
+    }
+
+    @Test
+    public void testFactorialNegative() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            Main.factorial(-1);
+        });
+        assertEquals("Факториал не определён для отрицательных чисел", exception.getMessage());
+    }
+
+    @Test
     public void testCalculateAreaCircle() {
         assertEquals(Math.PI * 4 * 4, Main.calculateArea(4), 0.0001);
     }

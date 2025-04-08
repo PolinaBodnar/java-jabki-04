@@ -22,13 +22,18 @@ public class Main {
     public static int findMax(int[] numbers) {
         int max = numbers[0];
         for (int i = 1; i < numbers.length; i++) {
-            if (numbers[i] > max) max = numbers[i];
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
         }
         return max;
     }
 
     // 4. Напишите метод, вычисляющий факториал числа с помощью цикла for
     public static long factorial(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("Факториал не определён для отрицательных чисел");
+        }
         long result = 1;
         for (int i = 1; i <= n; i++) {
             result *= i;
