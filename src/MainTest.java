@@ -1,31 +1,64 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class MainTest {
+public class MainTest {
+
     @Test
-    void printHello() {
-        Main.printHello("Hello");
+    public void testSumRange() {
+        assertEquals(15, Main.sumRange(1, 5));
     }
 
     @Test
-    void hello() {
-        String name = "Котик";
-        assertEquals("Hello " + name, Main.hello(name));  // Исправлено: используем assertEquals вместо Assertions
+    public void testAddIntegers() {
+        assertEquals(9, Main.add(4, 5));
     }
 
     @Test
-    void multiply() {
-        double d = 2, f = 3;
-        assertEquals(d * f, Main.multiply(d, f));  // Исправлено: используем assertEquals вместо Assertions
-    }
-
-    void MainTest() {
-        int a = 2, b = 3;
-        assertEquals(a * b, Main.multiply(a, b));  // Исправлено: используем assertEquals вместо Assertions
+    public void testAddStrings() {
+        assertEquals("Домашняя" + "работа_04", Main.add("Домашняя", "работа_04"));
     }
 
     @Test
-    void factorial() {
-        assertEquals(6, Main.factorial(3)); // 3! = 6
+    public void testFindMax() {
+        int[] arr = {1, 7, 3, 9, 2};
+        assertEquals(9, Main.findMax(arr));
+    }
+
+    @Test
+    public void testFactorial() {
+        assertEquals(120, Main.factorial(5));
+    }
+
+    @Test
+    public void testFactorialZero() {
+        assertEquals(1, Main.factorial(0));
+    }
+
+    @Test
+    public void testFactorialNegative() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            Main.factorial(-1);
+        });
+        assertEquals("Факториал не определён для отрицательных чисел", exception.getMessage());
+    }
+
+    @Test
+    public void testCalculateAreaCircle() {
+        assertEquals(Math.PI * 4 * 4, Main.calculateArea(4), 0.0001);
+    }
+
+    @Test
+    public void testCalculateAreaRectangle() {
+        assertEquals(20, Main.calculateArea(4, 5), 0.0001);
+    }
+
+    @Test
+    public void testAverage() {
+        assertEquals(5.0, Main.average(4, 5, 6), 0.0001);
+    }
+
+    @Test
+    public void testHypotenuse() {
+        assertEquals(5.0, Main.hypotenuse(3, 4), 0.0001);
     }
 }
